@@ -3,7 +3,7 @@
 int main(void) {
 	int whole_number;
 	printf("¬ведите положительное целое число:");
-	if ((scanf_s("%d", &whole_number) != 1) | (whole_number <= 0)){
+	if (scanf_s("%d", &whole_number) != 1 || whole_number <= 0){
 		printf("¬ведено не то, что нужно было.");
 			return 1;
 	}
@@ -11,9 +11,10 @@ int main(void) {
 	int sum = 0;
 	int multiplication = 1;
 	while (whole_number > 0) {
-		sum += whole_number % 10;
-		multiplication *= whole_number % 10;
-			whole_number /= 10;
+		int digit = whole_number % 10;
+		sum += digit;
+		multiplication *= digit;
+		whole_number /= 10;
 	}
 
 	printf("—умма цифр числа: %d\n", sum);
