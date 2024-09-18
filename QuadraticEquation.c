@@ -6,19 +6,14 @@
 
 int main(void) {
 	float senior_coefficient, middle_coefficient, free_member;
-	printf("Введите старший коэффициент:\n");
-	if (scanf_s("%f", &senior_coefficient) != 1) {
-		printf("Введите пожалуйста число!");
+
+	if (input_check("Введите старший коэффициент:\n", &senior_coefficient)) {
 		return 1;
 	}
-	printf("Введите средний коэффициент:\n");
-	if (scanf_s("%f", &middle_coefficient) != 1) {
-		printf("Введите пожалуйста число!");
+	if (input_check("Введите средний коэффициент:\n", &middle_coefficient)) {
 		return 1;
 	}
-	printf("Введите свободный член:\n");
-	if (scanf_s("%f", &free_member) != 1) {
-		printf("Введите пожалуйста число!");
+	if (input_check("Введите свободный член:\n", &free_member)) {
 		return 1;
 	}
 
@@ -63,7 +58,14 @@ int main(void) {
 		printf("Второй корень: %f + %fi\n", real_part, imaginary_part);
 		return 0;
 	}
-	
+}
 
+int input_check(const char * prompt, float * value) {
+	printf("%s", prompt);
 
+	if(scanf_s("%f", value) != 1) {
+		printf("Ошибка: введите корректное число.\n");
+		return 1;
+	}
+	return 0;
 }
