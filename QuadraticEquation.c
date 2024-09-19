@@ -1,23 +1,21 @@
 #include <stdio.h>
 #include <math.h>
-#define a senior_coefficient
-#define b middle_coefficient
-#define c free_member
+
+
+int input_check(const char* prompt, float* value);
 
 int main(void) {
-	float senior_coefficient, middle_coefficient, free_member;
+	float a, b, c;
 
-	if (input_check("Введите старший коэффициент:\n", &senior_coefficient)) {
+	if (input_check("Введите старший коэффициент:\n", &a)) {
 		return 1;
 	}
-	if (input_check("Введите средний коэффициент:\n", &middle_coefficient)) {
+	if (input_check("Введите средний коэффициент:\n", &b)) {
 		return 1;
 	}
-	if (input_check("Введите свободный член:\n", &free_member)) {
+	if (input_check("Введите свободный член:\n", &c)) {
 		return 1;
 	}
-
-	float discriminant = (b * b) - (4 * a * c);
 
 	if (a == 0) {
 		if (b == 0) {
@@ -36,6 +34,8 @@ int main(void) {
 			return 0;
 		}
 	}
+
+	float discriminant = (b * b) - (4 * a * c);
 
 	if (discriminant > 0) {
 		float root1 = (-b + sqrt(discriminant)) / (2 * a);
@@ -60,11 +60,12 @@ int main(void) {
 	}
 }
 
-int input_check(const char * prompt, float * value) {
+int input_check(const char* prompt, float* value) {
 	printf("%s", prompt);
 
-	if(scanf_s("%f", value) != 1) {
-		printf("Ошибка: введите корректное число.\n");
+	char addition;
+	if (scanf_s("%f%c", value, &addition, 1) != 2 || addition != '\n') {
+		printf("Ошибка: введите одно корректное число.\n");
 		return 1;
 	}
 	return 0;
