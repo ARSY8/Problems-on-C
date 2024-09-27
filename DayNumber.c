@@ -29,15 +29,15 @@ int day_number(int day, int month, int year) {
 
 	if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) { //Високосный год
 		int arr[12] = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-		return content(arr, day, month, year);
+		return count_day_sum(arr, day, month, year);
 	}		
 	else {
 		int arr[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-		return content(arr, day, month, year);
+		return count_day_sum(arr, day, month, year);
 	}
 }
 
-int content(int arr[], int day, int month, int year) {
+int count_day_sum(int arr[], int day, int month, int year) {
 	int day_sum = day;
 	if ((month >= 1 && month <= 12) && (day <= arr[month - 1] && day > 0)) {
 		for (int i = month - 1; i >= 1; i--) {
