@@ -29,7 +29,7 @@ int main(void) {
 		}
 	}
 
-	float percent_of_lucky_tickets = 100 * lucky_ticket / 999999;
+	float percent_of_lucky_tickets = 100.0f * lucky_ticket / 999999;
 
 
 	printf("Колличество счастливых билетов: %d\n", lucky_ticket);
