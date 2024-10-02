@@ -27,7 +27,7 @@ int main(void) {
 				max_number = mid_number;
 			}
 			else {
-				is_ok = false;
+				printf("Некорректный ввод.");
 			}
 		}
 	}
