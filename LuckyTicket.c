@@ -5,15 +5,6 @@ int main(void) {
 	int lucky_ticket = 0;
 	int arr[28] = {0};
 
-	/*for (int i = 0; i <= 9; ++i) {
-		for (int j = 0; j <= 9; ++j) {
-			for (int k = 0; k <= 9; ++k) {
-				int sum = i + j + k;
-				arr[sum] += 1;
-			}
-		}
-	}*/
-
 	for (int i = 0; i <= 999; ++i) {
 		int whole_number = i;
 		int sum = 0;
