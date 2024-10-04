@@ -2,32 +2,33 @@
 
 int main(void) {
 
-	int sum_left;
-	int sum_right;
 	int lucky_ticket = 0;
+	int arr[28] = {0};
+
+	/*for (int i = 0; i <= 9; ++i) {
+		for (int j = 0; j <= 9; ++j) {
+			for (int k = 0; k <= 9; ++k) {
+				int sum = i + j + k;
+				arr[sum] += 1;
+			}
+		}
+	}*/
 
 	for (int i = 0; i <= 999; ++i) {
-		int whole_number1 = i;
-		sum_left = 0;
-		while (whole_number1 > 0) {
-			int digit1 = whole_number1 % 10;
-			sum_left += digit1;
-			whole_number1 /= 10;
+		int whole_number = i;
+		int sum = 0;
+		while (whole_number >= 1) {
+			int digit = whole_number % 10;
+			sum += digit;
+			whole_number /= 10;
 		}
-		for (int j = 0; j <= 999; ++j) {
-			int whole_number2 = j;
-			sum_right = 0;
-			while (whole_number2 > 0) {
-				int digit2 = whole_number2 % 10;
-				sum_right += digit2;
-				whole_number2 /= 10;
-			}
-			if (sum_left == sum_right) {
-				lucky_ticket += 1;
-			}
-
-		}
+		arr[sum] += 1;
 	}
+
+	for (int i = 0; i <= 27; ++i) {
+		lucky_ticket += arr[i] * arr[i];
+	}
+
 
 	float percent_of_lucky_tickets = 100.0f * lucky_ticket / 999999;
 
