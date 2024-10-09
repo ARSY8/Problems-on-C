@@ -5,7 +5,7 @@ int main(void) {
 	int lucky_ticket = 0;
 	int arr[28] = {0};
 
-	for (int i = 0; i <= 999; ++i) {
+	for (int i = 0; i <= 455; ++i) {
 		int whole_number = i;
 		int sum = 0;
 		while (whole_number >= 1) {
@@ -13,7 +13,7 @@ int main(void) {
 			sum += digit;
 			whole_number /= 10;
 		}
-		arr[sum] += 1;
+		arr[sum] += 2;
 	}
 
 	for (int i = 0; i <= 27; ++i) {
