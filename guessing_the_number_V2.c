@@ -1,8 +1,9 @@
 #include <stdio.h>
 
 int main(void) {
-	int max_number = 101;
+	int max_number = 100;
 	int min_number = 1;
+	max_number++;
 	int mid_number = ((max_number + min_number) / 2) - 1;
 	char user_response;
 	printf("Загадайте число от 1 до 100\n");
